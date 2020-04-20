@@ -1,0 +1,122 @@
+import React, { useState } from 'react'
+import ReactDOM from 'react-dom'
+
+/* Display & button */
+
+const Display = props => <div><h1>Leave your feedback:</h1>{props.state}</div>
+
+const Button = (props) => (
+  <button onClick={props.handleClick}>
+    {props.text}
+  </button>
+)
+
+
+
+const App = () => {
+  const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
+  const [all, setAll] = useState(0)
+
+  
+  const percent = (good / all) * 100;
+
+
+
+  var [mean, setMean] = useState(0)
+  var nums = [mean]
+  var totalSum = 0;
+  for(var i in nums) {
+    totalSum = nums[i];
+    var numsCnt = nums.length;
+}
+    
+const average = totalSum / numsCnt;
+
+const Statistics = (good, neutral, bad, all, mean) => {
+  return(
+    <div>
+      <div text="Good" value ={good} />
+      <div text="Neutral" value ={neutral} />
+      <div text="Bad" value ={bad} />
+      <div text="All" value ={all} />
+      <div text="Mean" value = {mean}  />
+      <div text="Percent" value = {percent}  />
+    </div>
+  )
+}
+    
+  return (
+    <div>
+      <Display />
+      <Button handleClick={() => {
+        setGood(good + 1) 
+        setAll(all + 1)
+        setMean(mean + 1)}} text="Good" />
+      <Button handleClick={() => {
+        setNeutral(neutral + 1) 
+        setAll(all + 1)
+        setMean(mean + 0)}} text="Neutral" />
+      <Button handleClick={() => {
+        setBad(bad + 1) 
+        setAll(all + 1)
+        setMean(mean - 1)}} text="Bad" />
+      <div><h1>Statistics:</h1></div>
+
+      <Statistics good={good} />
+         Good feedback: {good}
+      <Statistics neutral={neutral} />
+         Neutral feedback: {neutral}
+      <Statistics bad={bad} />
+         Bad Feedback: {bad}
+      <Statistics all={all} />
+         All Feedback: {all}
+      <Statistics average={average} />  
+         Average: {average}
+         <Statistics percent={percent} />  
+         Percent of which were positive: {percent}
+    </div> 
+     
+  )
+}
+
+ReactDOM.render(
+  <App />, 
+  document.getElementById('root')
+)
+
+ /* References:
+  return (
+    <div>
+      <Display value={value} />
+      <Button handleClick={() => setToValue(1000)} text="thousand" />
+      <Button handleClick={() => setToValue(0)} text="reset" />
+      <Button handleClick={() => setToValue(value + 1)} text="increment" />
+    </div>
+  )
+ }
+ */
+
+ /* Random:
+
+const handleClick = () => {
+    setGood(setGood.concat('Good'))
+    setGood(good + 1)
+  }
+
+  const Statistics = (good, neutral, bad, all) => {
+  return(
+    <div>
+      
+      <div text="Good" value ={good} />
+      <div text="Neutral" value ={neutral} />
+      <div text="Bad" value ={bad} />
+      <div text="All" value ={all} />
+      
+      
+    </div>
+  )
+}
+
+ */
