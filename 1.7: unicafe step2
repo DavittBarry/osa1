@@ -69,7 +69,7 @@ const App = () => {
       <Statistics average = {value}  />
         Average: {value}
       <Statistics percentpositivetotal = {good / allClicks * 100} />
-        Percentage positive: {good / allClicks * 100} 
+        Percentage positive: {good / allClicks * 100} %
       
       
     </div>
