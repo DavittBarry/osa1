@@ -3,24 +3,15 @@ import ReactDOM from 'react-dom'
 
 /* Display & button */
 
-const Display = (props) => (
-  <div>
-    <h1>
-      Leave your feedback:
-      </h1>
-      {props.state}
-      </div>
-)
+const Display = props => <div><h1>Leave your feedback:</h1>{props.state}</div>
 
 const Button = (props) => (
   <button onClick={props.handleClick}>
     {props.text}
-
   </button>
 )
 
 const Statistics = (good, neutral, bad, allClicks) => {
-  
   
   return(
     <div>
@@ -28,12 +19,9 @@ const Statistics = (good, neutral, bad, allClicks) => {
       <div text="Neutral votes" value ={neutral} />
       <div text="Bad votes" value ={bad} />
       <div text="All votes" value ={allClicks} />
-
     </div>
-
   )
 }
-
 
 const App = () => {
   const [good, setGood] = useState(0)
@@ -61,15 +49,11 @@ const App = () => {
     <div><h1>Statistics:</h1></div>
 
     <div>Statistics are shown by placing a vote.</div>
-
-    
-    
-    
+ 
   </div>
   }
   
   return (
-    
     <div>
       <Display />
       <Button handleClick={() => {
@@ -99,14 +83,9 @@ const App = () => {
         Average: {value}
       <Statistics percentpositivetotal = {good / allClicks * 100} />
         Percentage positive: {good / allClicks * 100} %
-      
-      
     </div>
-
-    
   )
  }
-
 
 ReactDOM.render(
   <App />, 
@@ -153,6 +132,5 @@ if (all === 0) {
       </div>
     )
   }
-
 
  */
