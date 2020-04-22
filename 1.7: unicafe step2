@@ -3,14 +3,7 @@ import ReactDOM from 'react-dom'
 
 /* Display & button */
 
-const Display = (props) => (
-  <div>
-    <h1>
-      Leave your feedback:
-      </h1>
-      {props.state}
-      </div>
-)
+const Display = props => <div><h1>Leave your feedback:</h1>{props.state}</div>
 
 const Button = (props) => (
   <button onClick={props.handleClick}>
