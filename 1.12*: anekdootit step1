@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 const Button = (props) => (
+  <div>
   <button onClick={props.handleClick}>
     {props.text}
   </button>
+  </div>
 )
 
 const App = (props) => {
