@@ -15,8 +15,8 @@ const App = (props) => {
   const votecopy = [vote]
   votecopy[2] += 1
 
+  Array.apply(null, new Array(10)).map(Number.prototype.valueOf,0);
   
-
   return (
     <div>
       {props.anecdotes[selected]}
@@ -25,7 +25,8 @@ const App = (props) => {
       }} text="Vote" /> 
       <Button handleClick={() => {
       setSelected(selected + 1) 
-      }} text="Generate anecdote" /> 
+      }} text="Generate anecdote" />
+       Stats: {vote} 
     </div>
   )
 }
