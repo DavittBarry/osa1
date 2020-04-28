@@ -1,0 +1,25 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+const App = () => {
+  const course = 'Half Stack Application Development'
+  const part1 = 'Fundamentals of React'
+  const exercises1 = 10
+  const part2 = 'Using props to pass data'
+  const exercises2 = 7
+  const part3 = 'State of a component'
+  const exercises3 = 14
+
+  return (
+    <div>
+      <h1>{course}</h1>
+      <p>
+       Course parts include: '{part1}' which has {exercises1} exercises, '{part2}' that includes {exercises2} and finally '{part3}' where there includes {exercises3} exercises. 
+      </p>
+      <p>The total amount of exercises from all parts amount to: {exercises1 + exercises2 + exercises3} exercises.</p>
+    </div>
+  )
+
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
