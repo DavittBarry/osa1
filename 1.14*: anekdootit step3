@@ -1,0 +1,67 @@
+import React, { useState } from 'react'
+import ReactDOM from 'react-dom'
+
+const Display = props => <div><h1>Anecdote Generator:</h1>{props.state}</div>
+
+const Button = (props) => (
+  <div>
+  <button onClick={props.handleClick}>
+    {props.text}
+  </button>
+  </div>
+)
+
+const Anecdote = ({anecdotes}) => {
+  return (
+    <p> {anecdotes}</p>
+  )
+}
+
+const Randomizer = ({length}) => {
+  return Math.floor(Math.random() * length)
+}
+
+const Votestats = (vote, x) => {
+  const copy = [...vote];
+  copy[x] += 1;
+  return copy;
+}
+
+const MostVotedAnecdote = (vote) => {
+  let i = vote.indexOf(Math.max(...vote));
+  return i
+}
+
+const App = (props, i) => {
+  const [selected, setSelected] = useState(0)
+  const [vote, setVote ] = useState([0,0,0,0,0,0]);
+  
+console.log(vote)
+
+  
+
+  return (
+    <div>
+      <Display />
+      <Anecdote anecdotes={props.anecdotes[selected]} />
+      <Button handleClick={() => setVote(Votestats(vote, selected))} text="Vote for anecdote" />
+      <Button handleClick={() => setSelected(Randomizer(anecdotes))} text="Generate random anecdote" />
+      <h1>Anecdote with the most votes: </h1>
+      <Anecdote anecdotes={props.anecdotes[MostVotedAnecdote(vote)]} />
+    </div>
+  )
+}
+
+const anecdotes = [
+  'If it hurts, do it more often',
+  'Adding manpower to a late software project makes it later!',
+  'The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
+  'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
+  'Premature optimization is the root of all evil.',
+  'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
+];
+
+ReactDOM.render(
+  <App anecdotes={anecdotes} />,
+  document.getElementById('root')
+)
